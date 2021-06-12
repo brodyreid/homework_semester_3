@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/main.css">
+        <script defer src="js/main.js"></script>
+        <title>SPA Blog</title>
+    </head>
+    <body style="padding:5rem">
+        <header>
+            <nav class="navbar">
+                <a href="" data-target="welcome">Welcome</a> |
+                <a href="" data-target="post-index">Posts</a> |
+                <a href="" data-target="post-new">New Post</a>
+            </nav>
+        </header>
+        <main class="page active" id="welcome">
+            <h1>Welcome to SPA Blog</h1>
+        </main>
+        <main class="page" id="post-show"></main>
+        <main class="page" id="post-index">
+            <h1>Posts</h1>
+            <ul class="post-list"></ul>
+        </main>
+        <main class="page" id="post-new">
+            <h1>New Post</h1>
+            <form id="new-post-form">
+                <div>
+                    <label for="title">Title</label><br />
+                    <input type="text" name="title" id="title" placeholder="How many eggs can one man really eat?" />
+                </div><br>
+                <div>
+                    <label for="body">Body</label><br />
+                    <input type="text" name="body" id="body" placeholder="Eggs have been around since the dawn of man, but do we really know how many can really be eaten?" />
+                </div><br>
+                <input type="submit" value="Create post" />
+            </form>
+        </main>
+    </body>
+</html>
