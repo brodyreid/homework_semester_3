@@ -9,6 +9,7 @@ import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 import { useInterval } from '../hooks/useInterval'
 import { usePlayer } from '../hooks/usePlayer';
 import { useStage } from '../hooks/useStage';
+import { useGameStatus } from '../hooks/useGameStatus';
 
 //Components
 import Stage from './Stage';
@@ -21,7 +22,8 @@ const Tetris = () => {
     const [gameOver, setGameOver] = useState(false);
 
     const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
-    const [stage, setStage] = useStage(player, resetPlayer);
+    const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
+    const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
 
     console.log('re-render')
 
@@ -40,6 +42,7 @@ const Tetris = () => {
     }
 
     const drop = () => {
+        // Increase level when player has cleared 10 rows
         if (!checkCollision(player, stage, { x: 0, y: 1 })) {
             updatePlayerPos({ x: 0, y: 1, collided: false })
         } else {
